@@ -159,6 +159,26 @@ $withFallback = $repository->getForLocaleAndNamespacesWithFallback('en-GB', ['Co
 
 Fallback order is the application's default locale, base locale, then exact locale; later values override earlier ones.
 
+## Optional model
+
+Applications that want conventional CI4 CRUD and query-builder access may use the included model:
+
+```php
+use HistoryHeraldry\DatabaseTranslations\Models\TranslationModel;
+
+$translations = new TranslationModel();
+$id = $translations->insert([
+    'locale' => 'en',
+    'namespace' => 'Common',
+    'key' => 'actions.button.save',
+    'value' => 'Save',
+]);
+
+$english = $translations->where('locale', 'en')->findAll();
+```
+
+The model reads the configured database group, table, and primary-key mode. It provides validation, timestamps, soft deletes, and configured UUID generation. It is optional: runtime language loading and generated seeders continue to use `TranslationRepository`, and applications may keep their own model layer.
+
 ## Licence
 
 Released under the MIT License.

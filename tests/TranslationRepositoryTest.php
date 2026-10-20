@@ -14,7 +14,7 @@ final class TranslationRepositoryTest extends CIUnitTestCase
     protected function setUp(): void
     {
         parent::setUp();
-        require_once __DIR__ . '/../src/Database/Migrations/2026-10-20-120000_CreateTranslationsTable.php';
+        require_once __DIR__ . '/../src/Database/Migrations/2025-11-05-134305_CreateTranslationsTable.php';
         $this->db = Database::connect('tests');
         $this->db->initialize();
         $migrationConfig = config('DatabaseTranslations');
