@@ -2,13 +2,16 @@
 
 namespace HistoryHeraldry\DatabaseTranslations\Identifiers;
 
-use HistoryHeraldry\DatabaseTranslations\Contracts\IdentifierGenerator;
+use HistoryHeraldry\DatabaseTranslations\Config\DatabaseTranslations;
+use HistoryHeraldry\DatabaseTranslations\Contracts\VersionedIdentifierGenerator;
+use InvalidArgumentException;
 use Michalsn\CodeIgniterUuid\Uuid;
 use RuntimeException;
 
-final class MichalsnUuidGenerator implements IdentifierGenerator
+final class MichalsnUuidGenerator implements VersionedIdentifierGenerator
 {
     private Uuid $uuid;
+    private string $version = DatabaseTranslations::UUID_VERSION_4;
 
     public function __construct(?Uuid $uuid = null)
     {
@@ -24,8 +27,21 @@ final class MichalsnUuidGenerator implements IdentifierGenerator
         $this->uuid = $service;
     }
 
+    public function setVersion(string $version): void
+    {
+        if (! in_array($version, DatabaseTranslations::SUPPORTED_UUID_VERSIONS, true)) {
+            throw new InvalidArgumentException(sprintf(
+                'Unsupported generated UUID version "%s". Expected one of: %s.',
+                $version,
+                implode(', ', DatabaseTranslations::SUPPORTED_UUID_VERSIONS),
+            ));
+        }
+
+        $this->version = $version;
+    }
+
     public function generate(): string
     {
-        return $this->uuid->uuid4()->toRfc4122();
+        return $this->uuid->generate($this->version)->toRfc4122();
     }
 }

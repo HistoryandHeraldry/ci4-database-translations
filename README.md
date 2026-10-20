@@ -122,16 +122,19 @@ The default mode is dependency-free auto-incrementing integer IDs:
 public string $primaryKeyMode = self::PRIMARY_KEY_AUTO_INCREMENT;
 ```
 
-To use UUIDs, configure UUID mode and an identifier generator before running the migration:
+To use UUIDs, configure UUID mode, a supported version, and an identifier generator before running the migration. The package supports the uniqueness-safe UUID versions `v1`, `v4`, `v6`, and `v7`; UUIDv4 is the default.
 
 ```php
-use HistoryHeraldry\DatabaseTranslations\Identifiers\RandomUuidGenerator;
+use HistoryHeraldry\DatabaseTranslations\Identifiers\SymfonyUuidGenerator;
 
 public string $primaryKeyMode = self::PRIMARY_KEY_UUID;
-public ?string $identifierGenerator = RandomUuidGenerator::class;
+public string $uuidVersion = self::UUID_VERSION_7;
+public ?string $identifierGenerator = SymfonyUuidGenerator::class;
 ```
 
-The package includes a dependency-free UUIDv4 generator. Applications using `michalsn/codeigniter4-uuid` may instead install and configure that package, then select its adapter:
+`SymfonyUuidGenerator` is included with this package, so consumers do not need to install another UUID integration. The existing `RandomUuidGenerator` remains available for applications that specifically require its dependency-free UUIDv4 implementation.
+
+Applications using `michalsn/codeigniter4-uuid` may instead install and configure that package, then select its adapter. The adapter uses the same `uuidVersion` setting:
 
 ```bash
 composer require michalsn/codeigniter4-uuid
@@ -141,8 +144,11 @@ composer require michalsn/codeigniter4-uuid
 use HistoryHeraldry\DatabaseTranslations\Identifiers\MichalsnUuidGenerator;
 
 public string $primaryKeyMode = self::PRIMARY_KEY_UUID;
+public string $uuidVersion = self::UUID_VERSION_4;
 public ?string $identifierGenerator = MichalsnUuidGenerator::class;
 ```
+
+UUIDv3 and UUIDv5 are deliberately not offered for automatic primary keys. They are name-based and deterministic, so repeatedly generating them from a fixed namespace and name can produce duplicate identifiers. Consumers needing a specialised scheme may implement `HistoryHeraldry\DatabaseTranslations\Contracts\IdentifierGenerator`.
 
 Custom generators may be used by implementing `HistoryHeraldry\DatabaseTranslations\Contracts\IdentifierGenerator` and configuring the implementation's class name.
 

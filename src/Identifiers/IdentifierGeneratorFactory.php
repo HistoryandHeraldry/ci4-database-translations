@@ -4,6 +4,7 @@ namespace HistoryHeraldry\DatabaseTranslations\Identifiers;
 
 use HistoryHeraldry\DatabaseTranslations\Config\DatabaseTranslations;
 use HistoryHeraldry\DatabaseTranslations\Contracts\IdentifierGenerator;
+use HistoryHeraldry\DatabaseTranslations\Contracts\VersionedIdentifierGenerator;
 use RuntimeException;
 
 final class IdentifierGeneratorFactory
@@ -34,6 +35,9 @@ final class IdentifierGeneratorFactory
         $generator = new $class();
         if (! $generator instanceof IdentifierGenerator) {
             throw new RuntimeException('Configured translation identifier generator must implement ' . IdentifierGenerator::class . '.');
+        }
+        if ($generator instanceof VersionedIdentifierGenerator) {
+            $generator->setVersion($config->uuidVersion);
         }
 
         return $generator;

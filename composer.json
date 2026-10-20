@@ -6,7 +6,8 @@
     "license": "MIT",
     "require": {
         "php": "^8.2",
-        "codeigniter4/framework": "^4.7"
+        "codeigniter4/framework": "^4.7",
+        "symfony/uid": "^7.2"
     },
     "require-dev": {
         "michalsn/codeigniter4-uuid": "^2.0",
