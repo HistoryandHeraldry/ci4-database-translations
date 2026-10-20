@@ -1,0 +1,152 @@
+ERROR - 2026-10-20 10:56:58 --> Unable to prepare statement: no such table: db_translations
+in SYSTEMPATH/Database/SQLite3/Connection.php on line 159.
+ 1 SYSTEMPATH/Database/SQLite3/Connection.php(159): SQLite3->query('SELECT `id`
+FROM `db_translations`
+WHERE `locale` = \'en\'
+AND `namespace` = \'Common\'
+AND `key` = \'save\'')
+ 2 SYSTEMPATH/Database/BaseConnection.php(905): CodeIgniter\Database\SQLite3\Connection->execute('SELECT `id`
+FROM `db_translations`
+WHERE `locale` = \'en\'
+AND `namespace` = \'Common\'
+AND `key` = \'save\'')
+ 3 SYSTEMPATH/Database/BaseConnection.php(822): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `id`
+FROM `db_translations`
+WHERE `locale` = \'en\'
+AND `namespace` = \'Common\'
+AND `key` = \'save\'')
+ 4 SYSTEMPATH/Database/BaseBuilder.php(1660): CodeIgniter\Database\BaseConnection->query('SELECT `id`
+FROM `db_translations`
+WHERE `locale` = :locale:
+AND `namespace` = :namespace:
+AND `key` = :key:', [...], false)
+ 5 /Volumes/JamieSMachon/Projects/__ULURU__/server/rest/local-packages/historyheraldry/ci4-database-translations/src/Repositories/TranslationRepository.php(90): CodeIgniter\Database\BaseBuilder->get()
+ 6 /Volumes/JamieSMachon/Projects/__ULURU__/server/rest/local-packages/historyheraldry/ci4-database-translations/tests/TranslationRepositoryTest.php(44): HistoryHeraldry\DatabaseTranslations\Repositories\TranslationRepository->upsertBatch([...])
+ 7 VENDORPATH/phpunit/phpunit/src/Framework/TestCase.php(1137): TranslationRepositoryTest->testUpsertPrefixExactLookupAndFallback()
+ 8 VENDORPATH/phpunit/phpunit/src/Framework/TestCase.php(1465): PHPUnit\Framework\TestCase->invokeTestMethod('testUpsertPrefixExactLookupAndFallback', [])
+ 9 VENDORPATH/phpunit/phpunit/src/Framework/TestCase.php(399): PHPUnit\Framework\TestCase->runTest()
+10 VENDORPATH/phpunit/phpunit/src/Framework/TestRunner/TestRunner.php(161): PHPUnit\Framework\TestCase->runLifecycle()
+11 VENDORPATH/phpunit/phpunit/src/Framework/TestRunner/TestRunner.php(88): PHPUnit\Framework\TestRunner\TestRunner->runInProcess(Object(TranslationRepositoryTest))
+12 VENDORPATH/phpunit/phpunit/src/Framework/TestCase.php(290): PHPUnit\Framework\TestRunner\TestRunner->run(Object(TranslationRepositoryTest))
+13 VENDORPATH/phpunit/phpunit/src/Framework/TestSuite.php(655): PHPUnit\Framework\TestCase->run()
+14 VENDORPATH/phpunit/phpunit/src/Framework/TestSuite.php(431): PHPUnit\Framework\TestSuite->runTests(null, Object(PHPUnit\Event\DispatchingEmitter))
+15 VENDORPATH/phpunit/phpunit/src/Framework/TestSuite.php(655): PHPUnit\Framework\TestSuite->run()
+16 VENDORPATH/phpunit/phpunit/src/Framework/TestSuite.php(431): PHPUnit\Framework\TestSuite->runTests(null, Object(PHPUnit\Event\DispatchingEmitter))
+17 VENDORPATH/phpunit/phpunit/src/Framework/TestSuite.php(655): PHPUnit\Framework\TestSuite->run()
+18 VENDORPATH/phpunit/phpunit/src/Framework/TestSuite.php(431): PHPUnit\Framework\TestSuite->runTests(null, Object(PHPUnit\Event\DispatchingEmitter))
+19 VENDORPATH/phpunit/phpunit/src/TextUI/TestRunner.php(72): PHPUnit\Framework\TestSuite->run()
+20 VENDORPATH/phpunit/phpunit/src/TextUI/Application.php(283): PHPUnit\TextUI\TestRunner->run(Object(PHPUnit\TextUI\Configuration\Configuration), Object(PHPUnit\Runner\TestRunHistory\DefaultTestRunHistory), Object(PHPUnit\Framework\TestSuite))
+21 VENDORPATH/phpunit/phpunit/phpunit(104): PHPUnit\TextUI\Application->run([...])
+22 VENDORPATH/bin/phpunit(122): include('/Volumes/JamieSMachon/Projects/__ULURU__/server/rest/vendor/phpunit/phpunit/phpunit')
+ERROR - 2026-10-20 10:57:06 --> Unable to prepare statement: no such table: db_translations
+in SYSTEMPATH/Database/SQLite3/Connection.php on line 159.
+ 1 SYSTEMPATH/Database/SQLite3/Connection.php(159): SQLite3->query('SELECT `id`
+FROM `db_translations`
+WHERE `locale` = \'en\'
+AND `namespace` = \'Common\'
+AND `key` = \'save\'')
+ 2 SYSTEMPATH/Database/BaseConnection.php(905): CodeIgniter\Database\SQLite3\Connection->execute('SELECT `id`
+FROM `db_translations`
+WHERE `locale` = \'en\'
+AND `namespace` = \'Common\'
+AND `key` = \'save\'')
+ 3 SYSTEMPATH/Database/BaseConnection.php(822): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `id`
+FROM `db_translations`
+WHERE `locale` = \'en\'
+AND `namespace` = \'Common\'
+AND `key` = \'save\'')
+ 4 SYSTEMPATH/Database/BaseBuilder.php(1660): CodeIgniter\Database\BaseConnection->query('SELECT `id`
+FROM `db_translations`
+WHERE `locale` = :locale:
+AND `namespace` = :namespace:
+AND `key` = :key:', [...], false)
+ 5 /Volumes/JamieSMachon/Projects/__ULURU__/server/rest/local-packages/historyheraldry/ci4-database-translations/src/Repositories/TranslationRepository.php(90): CodeIgniter\Database\BaseBuilder->get()
+ 6 /Volumes/JamieSMachon/Projects/__ULURU__/server/rest/local-packages/historyheraldry/ci4-database-translations/tests/TranslationRepositoryTest.php(44): HistoryHeraldry\DatabaseTranslations\Repositories\TranslationRepository->upsertBatch([...])
+ 7 VENDORPATH/phpunit/phpunit/src/Framework/TestCase.php(1137): TranslationRepositoryTest->testUpsertPrefixExactLookupAndFallback()
+ 8 VENDORPATH/phpunit/phpunit/src/Framework/TestCase.php(1465): PHPUnit\Framework\TestCase->invokeTestMethod('testUpsertPrefixExactLookupAndFallback', [])
+ 9 VENDORPATH/phpunit/phpunit/src/Framework/TestCase.php(399): PHPUnit\Framework\TestCase->runTest()
+10 VENDORPATH/phpunit/phpunit/src/Framework/TestRunner/TestRunner.php(161): PHPUnit\Framework\TestCase->runLifecycle()
+11 VENDORPATH/phpunit/phpunit/src/Framework/TestRunner/TestRunner.php(88): PHPUnit\Framework\TestRunner\TestRunner->runInProcess(Object(TranslationRepositoryTest))
+12 VENDORPATH/phpunit/phpunit/src/Framework/TestCase.php(290): PHPUnit\Framework\TestRunner\TestRunner->run(Object(TranslationRepositoryTest))
+13 VENDORPATH/phpunit/phpunit/src/Framework/TestSuite.php(655): PHPUnit\Framework\TestCase->run()
+14 VENDORPATH/phpunit/phpunit/src/Framework/TestSuite.php(431): PHPUnit\Framework\TestSuite->runTests(null, Object(PHPUnit\Event\DispatchingEmitter))
+15 VENDORPATH/phpunit/phpunit/src/Framework/TestSuite.php(655): PHPUnit\Framework\TestSuite->run()
+16 VENDORPATH/phpunit/phpunit/src/Framework/TestSuite.php(431): PHPUnit\Framework\TestSuite->runTests(null, Object(PHPUnit\Event\DispatchingEmitter))
+17 VENDORPATH/phpunit/phpunit/src/Framework/TestSuite.php(655): PHPUnit\Framework\TestSuite->run()
+18 VENDORPATH/phpunit/phpunit/src/Framework/TestSuite.php(431): PHPUnit\Framework\TestSuite->runTests(null, Object(PHPUnit\Event\DispatchingEmitter))
+19 VENDORPATH/phpunit/phpunit/src/TextUI/TestRunner.php(72): PHPUnit\Framework\TestSuite->run()
+20 VENDORPATH/phpunit/phpunit/src/TextUI/Application.php(283): PHPUnit\TextUI\TestRunner->run(Object(PHPUnit\TextUI\Configuration\Configuration), Object(PHPUnit\Runner\TestRunHistory\DefaultTestRunHistory), Object(PHPUnit\Framework\TestSuite))
+21 VENDORPATH/phpunit/phpunit/phpunit(104): PHPUnit\TextUI\Application->run([...])
+22 VENDORPATH/bin/phpunit(122): include('/Volumes/JamieSMachon/Projects/__ULURU__/server/rest/vendor/phpunit/phpunit/phpunit')
+ERROR - 2026-10-20 11:32:15 --> NOT NULL constraint failed: db_translations.id
+in SYSTEMPATH/Database/SQLite3/Connection.php on line 158.
+ 1 SYSTEMPATH/Database/SQLite3/Connection.php(158): SQLite3->exec('INSERT INTO `db_translations` (`locale`, `namespace`, `key`, `value`, `created_at`, `updated_at`) VALUES (\'en\', \'Common\', \'save\', \'Save\', \'2026-10-20 11:32:15\', \'2026-10-20 11:32:15\')')
+ 2 SYSTEMPATH/Database/BaseConnection.php(905): CodeIgniter\Database\SQLite3\Connection->execute('INSERT INTO `db_translations` (`locale`, `namespace`, `key`, `value`, `created_at`, `updated_at`) VALUES (\'en\', \'Common\', \'save\', \'Save\', \'2026-10-20 11:32:15\', \'2026-10-20 11:32:15\')')
+ 3 SYSTEMPATH/Database/BaseConnection.php(822): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `db_translations` (`locale`, `namespace`, `key`, `value`, `created_at`, `updated_at`) VALUES (\'en\', \'Common\', \'save\', \'Save\', \'2026-10-20 11:32:15\', \'2026-10-20 11:32:15\')')
+ 4 SYSTEMPATH/Database/BaseBuilder.php(2362): CodeIgniter\Database\BaseConnection->query('INSERT INTO `db_translations` (`locale`, `namespace`, `key`, `value`, `created_at`, `updated_at`) VALUES (:locale:, :namespace:, :key:, :value:, :created_at:, :updated_at:)', [...], false)
+ 5 /Volumes/JamieSMachon/Projects/__ULURU__/server/rest/local-packages/historyheraldry/ci4-database-translations/src/Repositories/TranslationRepository.php(118): CodeIgniter\Database\BaseBuilder->insert([...])
+ 6 /Volumes/JamieSMachon/Projects/__ULURU__/server/rest/local-packages/historyheraldry/ci4-database-translations/tests/TranslationRepositoryTest.php(41): HistoryHeraldry\DatabaseTranslations\Repositories\TranslationRepository->upsertBatch([...])
+ 7 VENDORPATH/phpunit/phpunit/src/Framework/TestCase.php(1137): TranslationRepositoryTest->testUpsertPrefixExactLookupAndFallback()
+ 8 VENDORPATH/phpunit/phpunit/src/Framework/TestCase.php(1465): PHPUnit\Framework\TestCase->invokeTestMethod('testUpsertPrefixExactLookupAndFallback', [])
+ 9 VENDORPATH/phpunit/phpunit/src/Framework/TestCase.php(399): PHPUnit\Framework\TestCase->runTest()
+10 VENDORPATH/phpunit/phpunit/src/Framework/TestRunner/TestRunner.php(161): PHPUnit\Framework\TestCase->runLifecycle()
+11 VENDORPATH/phpunit/phpunit/src/Framework/TestRunner/TestRunner.php(88): PHPUnit\Framework\TestRunner\TestRunner->runInProcess(Object(TranslationRepositoryTest))
+12 VENDORPATH/phpunit/phpunit/src/Framework/TestCase.php(290): PHPUnit\Framework\TestRunner\TestRunner->run(Object(TranslationRepositoryTest))
+13 VENDORPATH/phpunit/phpunit/src/Framework/TestSuite.php(655): PHPUnit\Framework\TestCase->run()
+14 VENDORPATH/phpunit/phpunit/src/Framework/TestSuite.php(431): PHPUnit\Framework\TestSuite->runTests(null, Object(PHPUnit\Event\DispatchingEmitter))
+15 VENDORPATH/phpunit/phpunit/src/Framework/TestSuite.php(655): PHPUnit\Framework\TestSuite->run()
+16 VENDORPATH/phpunit/phpunit/src/Framework/TestSuite.php(431): PHPUnit\Framework\TestSuite->runTests(null, Object(PHPUnit\Event\DispatchingEmitter))
+17 VENDORPATH/phpunit/phpunit/src/Framework/TestSuite.php(655): PHPUnit\Framework\TestSuite->run()
+18 VENDORPATH/phpunit/phpunit/src/Framework/TestSuite.php(431): PHPUnit\Framework\TestSuite->runTests(null, Object(PHPUnit\Event\DispatchingEmitter))
+19 VENDORPATH/phpunit/phpunit/src/TextUI/TestRunner.php(72): PHPUnit\Framework\TestSuite->run()
+20 VENDORPATH/phpunit/phpunit/src/TextUI/Application.php(283): PHPUnit\TextUI\TestRunner->run(Object(PHPUnit\TextUI\Configuration\Configuration), Object(PHPUnit\Runner\TestRunHistory\DefaultTestRunHistory), Object(PHPUnit\Framework\TestSuite))
+21 VENDORPATH/phpunit/phpunit/phpunit(104): PHPUnit\TextUI\Application->run([...])
+22 VENDORPATH/bin/phpunit(122): include('/Volumes/JamieSMachon/Projects/__ULURU__/server/rest/vendor/phpunit/phpunit/phpunit')
+ERROR - 2026-10-20 11:32:27 --> NOT NULL constraint failed: db_translations.id
+in SYSTEMPATH/Database/SQLite3/Connection.php on line 158.
+ 1 SYSTEMPATH/Database/SQLite3/Connection.php(158): SQLite3->exec('INSERT INTO `db_translations` (`locale`, `namespace`, `key`, `value`, `created_at`, `updated_at`) VALUES (\'en\', \'Common\', \'save\', \'Save\', \'2026-10-20 11:32:27\', \'2026-10-20 11:32:27\')')
+ 2 SYSTEMPATH/Database/BaseConnection.php(905): CodeIgniter\Database\SQLite3\Connection->execute('INSERT INTO `db_translations` (`locale`, `namespace`, `key`, `value`, `created_at`, `updated_at`) VALUES (\'en\', \'Common\', \'save\', \'Save\', \'2026-10-20 11:32:27\', \'2026-10-20 11:32:27\')')
+ 3 SYSTEMPATH/Database/BaseConnection.php(822): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `db_translations` (`locale`, `namespace`, `key`, `value`, `created_at`, `updated_at`) VALUES (\'en\', \'Common\', \'save\', \'Save\', \'2026-10-20 11:32:27\', \'2026-10-20 11:32:27\')')
+ 4 SYSTEMPATH/Database/BaseBuilder.php(2362): CodeIgniter\Database\BaseConnection->query('INSERT INTO `db_translations` (`locale`, `namespace`, `key`, `value`, `created_at`, `updated_at`) VALUES (:locale:, :namespace:, :key:, :value:, :created_at:, :updated_at:)', [...], false)
+ 5 /Volumes/JamieSMachon/Projects/__ULURU__/server/rest/local-packages/historyheraldry/ci4-database-translations/src/Repositories/TranslationRepository.php(118): CodeIgniter\Database\BaseBuilder->insert([...])
+ 6 /Volumes/JamieSMachon/Projects/__ULURU__/server/rest/local-packages/historyheraldry/ci4-database-translations/tests/TranslationRepositoryTest.php(41): HistoryHeraldry\DatabaseTranslations\Repositories\TranslationRepository->upsertBatch([...])
+ 7 VENDORPATH/phpunit/phpunit/src/Framework/TestCase.php(1137): TranslationRepositoryTest->testUpsertPrefixExactLookupAndFallback()
+ 8 VENDORPATH/phpunit/phpunit/src/Framework/TestCase.php(1465): PHPUnit\Framework\TestCase->invokeTestMethod('testUpsertPrefixExactLookupAndFallback', [])
+ 9 VENDORPATH/phpunit/phpunit/src/Framework/TestCase.php(399): PHPUnit\Framework\TestCase->runTest()
+10 VENDORPATH/phpunit/phpunit/src/Framework/TestRunner/TestRunner.php(161): PHPUnit\Framework\TestCase->runLifecycle()
+11 VENDORPATH/phpunit/phpunit/src/Framework/TestRunner/TestRunner.php(88): PHPUnit\Framework\TestRunner\TestRunner->runInProcess(Object(TranslationRepositoryTest))
+12 VENDORPATH/phpunit/phpunit/src/Framework/TestCase.php(290): PHPUnit\Framework\TestRunner\TestRunner->run(Object(TranslationRepositoryTest))
+13 VENDORPATH/phpunit/phpunit/src/Framework/TestSuite.php(655): PHPUnit\Framework\TestCase->run()
+14 VENDORPATH/phpunit/phpunit/src/Framework/TestSuite.php(431): PHPUnit\Framework\TestSuite->runTests(null, Object(PHPUnit\Event\DispatchingEmitter))
+15 VENDORPATH/phpunit/phpunit/src/Framework/TestSuite.php(655): PHPUnit\Framework\TestSuite->run()
+16 VENDORPATH/phpunit/phpunit/src/Framework/TestSuite.php(431): PHPUnit\Framework\TestSuite->runTests(null, Object(PHPUnit\Event\DispatchingEmitter))
+17 VENDORPATH/phpunit/phpunit/src/Framework/TestSuite.php(655): PHPUnit\Framework\TestSuite->run()
+18 VENDORPATH/phpunit/phpunit/src/Framework/TestSuite.php(431): PHPUnit\Framework\TestSuite->runTests(null, Object(PHPUnit\Event\DispatchingEmitter))
+19 VENDORPATH/phpunit/phpunit/src/TextUI/TestRunner.php(72): PHPUnit\Framework\TestSuite->run()
+20 VENDORPATH/phpunit/phpunit/src/TextUI/Application.php(283): PHPUnit\TextUI\TestRunner->run(Object(PHPUnit\TextUI\Configuration\Configuration), Object(PHPUnit\Runner\TestRunHistory\DefaultTestRunHistory), Object(PHPUnit\Framework\TestSuite))
+21 VENDORPATH/phpunit/phpunit/phpunit(104): PHPUnit\TextUI\Application->run([...])
+22 VENDORPATH/bin/phpunit(122): include('/Volumes/JamieSMachon/Projects/__ULURU__/server/rest/vendor/phpunit/phpunit/phpunit')
+ERROR - 2026-10-20 11:33:24 --> NOT NULL constraint failed: db_translations.id
+in SYSTEMPATH/Database/SQLite3/Connection.php on line 158.
+ 1 SYSTEMPATH/Database/SQLite3/Connection.php(158): SQLite3->exec('INSERT INTO `db_translations` (`locale`, `namespace`, `key`, `value`, `created_at`, `updated_at`) VALUES (\'en\', \'Common\', \'save\', \'Save\', \'2026-10-20 11:33:24\', \'2026-10-20 11:33:24\')')
+ 2 SYSTEMPATH/Database/BaseConnection.php(905): CodeIgniter\Database\SQLite3\Connection->execute('INSERT INTO `db_translations` (`locale`, `namespace`, `key`, `value`, `created_at`, `updated_at`) VALUES (\'en\', \'Common\', \'save\', \'Save\', \'2026-10-20 11:33:24\', \'2026-10-20 11:33:24\')')
+ 3 SYSTEMPATH/Database/BaseConnection.php(822): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `db_translations` (`locale`, `namespace`, `key`, `value`, `created_at`, `updated_at`) VALUES (\'en\', \'Common\', \'save\', \'Save\', \'2026-10-20 11:33:24\', \'2026-10-20 11:33:24\')')
+ 4 SYSTEMPATH/Database/BaseBuilder.php(2362): CodeIgniter\Database\BaseConnection->query('INSERT INTO `db_translations` (`locale`, `namespace`, `key`, `value`, `created_at`, `updated_at`) VALUES (:locale:, :namespace:, :key:, :value:, :created_at:, :updated_at:)', [...], false)
+ 5 /Volumes/JamieSMachon/Projects/__ULURU__/server/rest/local-packages/historyheraldry/ci4-database-translations/src/Repositories/TranslationRepository.php(118): CodeIgniter\Database\BaseBuilder->insert([...])
+ 6 /Volumes/JamieSMachon/Projects/__ULURU__/server/rest/local-packages/historyheraldry/ci4-database-translations/tests/TranslationRepositoryTest.php(41): HistoryHeraldry\DatabaseTranslations\Repositories\TranslationRepository->upsertBatch([...])
+ 7 VENDORPATH/phpunit/phpunit/src/Framework/TestCase.php(1137): TranslationRepositoryTest->testUpsertPrefixExactLookupAndFallback()
+ 8 VENDORPATH/phpunit/phpunit/src/Framework/TestCase.php(1465): PHPUnit\Framework\TestCase->invokeTestMethod('testUpsertPrefixExactLookupAndFallback', [])
+ 9 VENDORPATH/phpunit/phpunit/src/Framework/TestCase.php(399): PHPUnit\Framework\TestCase->runTest()
+10 VENDORPATH/phpunit/phpunit/src/Framework/TestRunner/TestRunner.php(161): PHPUnit\Framework\TestCase->runLifecycle()
+11 VENDORPATH/phpunit/phpunit/src/Framework/TestRunner/TestRunner.php(88): PHPUnit\Framework\TestRunner\TestRunner->runInProcess(Object(TranslationRepositoryTest))
+12 VENDORPATH/phpunit/phpunit/src/Framework/TestCase.php(290): PHPUnit\Framework\TestRunner\TestRunner->run(Object(TranslationRepositoryTest))
+13 VENDORPATH/phpunit/phpunit/src/Framework/TestSuite.php(655): PHPUnit\Framework\TestCase->run()
+14 VENDORPATH/phpunit/phpunit/src/Framework/TestSuite.php(431): PHPUnit\Framework\TestSuite->runTests(null, Object(PHPUnit\Event\DispatchingEmitter))
+15 VENDORPATH/phpunit/phpunit/src/Framework/TestSuite.php(655): PHPUnit\Framework\TestSuite->run()
+16 VENDORPATH/phpunit/phpunit/src/Framework/TestSuite.php(431): PHPUnit\Framework\TestSuite->runTests(null, Object(PHPUnit\Event\DispatchingEmitter))
+17 VENDORPATH/phpunit/phpunit/src/Framework/TestSuite.php(655): PHPUnit\Framework\TestSuite->run()
+18 VENDORPATH/phpunit/phpunit/src/Framework/TestSuite.php(431): PHPUnit\Framework\TestSuite->runTests(null, Object(PHPUnit\Event\DispatchingEmitter))
+19 VENDORPATH/phpunit/phpunit/src/TextUI/TestRunner.php(72): PHPUnit\Framework\TestSuite->run()
+20 VENDORPATH/phpunit/phpunit/src/TextUI/Application.php(283): PHPUnit\TextUI\TestRunner->run(Object(PHPUnit\TextUI\Configuration\Configuration), Object(PHPUnit\Runner\TestRunHistory\DefaultTestRunHistory), Object(PHPUnit\Framework\TestSuite))
+21 VENDORPATH/phpunit/phpunit/phpunit(104): PHPUnit\TextUI\Application->run([...])
+22 VENDORPATH/bin/phpunit(122): include('/Volumes/JamieSMachon/Projects/__ULURU__/server/rest/vendor/phpunit/phpunit/phpunit')

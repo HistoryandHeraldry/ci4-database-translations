@@ -1,0 +1,50 @@
+<?php declare(strict_types=1);
+
+namespace HistoryHeraldry\DatabaseTranslations\Database\Migrations;
+
+use CodeIgniter\Database\Migration;
+use HistoryHeraldry\DatabaseTranslations\Config\DatabaseTranslations;
+use HistoryHeraldry\DatabaseTranslations\Identifiers\IdentifierGeneratorFactory;
+use RuntimeException;
+
+final class CreateTranslationsTable extends Migration
+{
+    public function up(): void
+    {
+        $config = config('DatabaseTranslations');
+        if (! $config instanceof DatabaseTranslations) {
+            throw new RuntimeException('Unable to load DatabaseTranslations configuration.');
+        }
+
+        IdentifierGeneratorFactory::create($config);
+        if ($config->primaryKeyMode === DatabaseTranslations::PRIMARY_KEY_AUTO_INCREMENT) {
+            $isSQLite = $this->db->getPlatform() === 'SQLite3';
+            $id = ['type' => $isSQLite ? 'INTEGER' : 'BIGINT', 'auto_increment' => true];
+            if (! $isSQLite) {
+                $id['unsigned'] = true;
+            }
+        } else {
+            $id = ['type' => 'CHAR', 'constraint' => 36, 'null' => false];
+        }
+
+        $this->forge->addField([
+            'id' => $id,
+            'locale' => ['type' => 'VARCHAR', 'constraint' => 10, 'null' => false],
+            'namespace' => ['type' => 'VARCHAR', 'constraint' => 128, 'null' => false],
+            'key' => ['type' => 'VARCHAR', 'constraint' => 255, 'null' => false],
+            'value' => ['type' => 'TEXT', 'null' => true],
+            'created_at' => ['type' => 'DATETIME', 'null' => false],
+            'updated_at' => ['type' => 'DATETIME', 'null' => false],
+            'deleted_at' => ['type' => 'DATETIME', 'null' => true],
+        ]);
+        $this->forge->addPrimaryKey('id');
+        $this->forge->addKey(['locale', 'namespace', 'key'], false, true);
+        $this->forge->createTable($config->table, true);
+    }
+
+    public function down(): void
+    {
+        $config = config('DatabaseTranslations');
+        $this->forge->dropTable($config instanceof DatabaseTranslations ? $config->table : 'translations', true);
+    }
+}

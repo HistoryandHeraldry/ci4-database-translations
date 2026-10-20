@@ -1,0 +1,36 @@
+{
+    "name": "historyheraldry/ci4-database-translations",
+    "description": "Database-backed translations and deployable translation seed generation for CodeIgniter 4.",
+    "keywords": ["codeigniter4", "database", "i18n", "localization", "translations"],
+    "type": "library",
+    "license": "MIT",
+    "require": {
+        "php": "^8.2",
+        "codeigniter4/framework": "^4.7"
+    },
+    "require-dev": {
+        "michalsn/codeigniter4-uuid": "^2.0",
+        "phpstan/phpstan": "^2.1",
+        "phpunit/phpunit": "^11.5 || ^12.0 || ^13.0"
+    },
+    "suggest": {
+        "historyheraldry/ci4-seed-tracker": "Runs generated translation seeds once and records their checksums.",
+        "michalsn/codeigniter4-uuid": "Provides UUID primary keys through the included optional adapter."
+    },
+    "autoload": {
+        "psr-4": {
+            "HistoryHeraldry\\DatabaseTranslations\\": "src/"
+        },
+        "exclude-from-classmap": [
+            "src/Database/Migrations/**"
+        ]
+    },
+    "config": {
+        "sort-packages": true
+    },
+    "scripts": {
+        "analyse": "phpstan analyse --no-progress --debug",
+        "test": "phpunit",
+        "quality": ["@composer validate --strict", "@analyse", "@test"]
+    }
+}
