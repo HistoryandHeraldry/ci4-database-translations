@@ -73,25 +73,36 @@ Place translations in standard CI4 files such as `app/Language/en/Common.php`, t
 php spark translations:generate-seeder
 ```
 
-Use a descriptive name when useful:
+Pass a seeder class name when useful:
 
 ```bash
-php spark translations:generate-seeder initial-catalogue
+php spark translations:generate-seeder InitialCatalogueSeeder
 php spark translations:generate-seeder --dry-run
+php spark translations:generate-seeder InitialCatalogueSeeder --keep-files
 ```
 
-The command recursively flattens nested translation arrays and creates:
+The command recursively flattens nested translation arrays and creates a seeder under `app/Database/Seeds` plus a matching NDJSON file under `app/Database/Seeds/Data/Translations`.
 
-- a timestamped tracked seeder under `app/Database/Seeds`;
-- a matching NDJSON file under `app/Database/Seeds/Data/Translations`.
-
-Commit both files. With `historyheraldry/ci4-seed-tracker` installed, apply the generated seed once with:
+When `historyheraldry/ci4-seed-tracker` is installed, the seeder filename automatically receives its required timestamp prefix. Apply it once with:
 
 ```bash
 php spark seed
 ```
 
-Generating a seed does not alter or clear the source language files.
+Without the seed tracker, the command creates a standard CI4 seeder without a timestamp prefix. Run it with the class name shown by the command:
+
+```bash
+php spark db:seed TranslationsSeeder
+```
+
+Commit both generated files.
+
+After successfully creating both artifacts, the command replaces the returned translation array in each contributing language file with an empty array. Content outside that returned array, including file headers and comments, remains intact.
+
+Both options are presence-only switches; they do not take values:
+
+- `--dry-run` previews the paths and row count without writing artifacts or changing language files.
+- `--keep-files` creates the seed and NDJSON artifacts while leaving language files unchanged.
 
 ## Configuration
 

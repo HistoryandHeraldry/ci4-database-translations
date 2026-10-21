@@ -13,10 +13,13 @@ final class GenerateTranslationSeed extends BaseCommand
 {
     protected $group = 'Translations';
     protected $name = 'translations:generate-seeder';
-    protected $description = 'Create a tracked seed and NDJSON data file from application language files.';
-    protected $usage = 'translations:generate-seeder [name] [--dry-run]';
-    protected $arguments = ['name' => 'Optional descriptive seed name (default: Translations).'];
-    protected $options = ['--dry-run' => 'Validate and report without writing files.'];
+    protected $description = 'Create a translation seeder and NDJSON data file from application language files.';
+    protected $usage = 'translations:generate-seeder [name] [--dry-run] [--keep-files]';
+    protected $arguments = ['name' => 'Optional seeder class name (default: TranslationsSeeder).'];
+    protected $options = [
+        '--dry-run'   => 'Preview the generated artifacts without writing or clearing files.',
+        '--keep-files' => 'Generate the seed artifacts without clearing the source language files.',
+    ];
 
     public function __construct(LoggerInterface $logger, Commands $commands, private ?TranslationSeedGenerator $generator = null)
     {
@@ -26,30 +29,33 @@ final class GenerateTranslationSeed extends BaseCommand
     public function run(array $params): void
     {
         try {
+            $dryRun = $this->hasOption('dry-run');
             $result = ($this->generator ?? new TranslationSeedGenerator())->generate(
-                isset($params[0]) ? (string) $params[0] : null,
-                $this->optionBool('dry-run'),
+                name: isset($params[0]) ? (string) $params[0] : null,
+                dryRun: $dryRun,
+                keepFiles: $this->hasOption('keep-files'),
             );
             CLI::write('Translation seed: ' . $result['seederPath'], 'green');
             CLI::write('NDJSON data: ' . $result['dataPath'], 'green');
             CLI::write('Rows: ' . $result['rowsCount'], 'green');
-            if (! $this->optionBool('dry-run')) {
-                CLI::write('Run pending tracked seeds with: php spark seed', 'yellow');
+            if ($dryRun) {
+                CLI::write('Dry run: no files were written or cleared.', 'yellow');
+            } else {
+                CLI::write('Language files cleared: ' . $result['filesCleared'], 'green');
+                CLI::write(
+                    $result['tracked']
+                        ? 'Run pending tracked seeds with: php spark seed'
+                        : 'Run this seeder with: php spark db:seed ' . $result['class'],
+                    'yellow',
+                );
             }
         } catch (Throwable $exception) {
             CLI::error($exception->getMessage());
         }
     }
 
-    private function optionBool(string $name): bool
+    private function hasOption(string $name): bool
     {
-        $value = CLI::getOption($name);
-        if ($value === null) {
-            return false;
-        }
-        if ($value === true) {
-            return true;
-        }
-        return filter_var($value, FILTER_VALIDATE_BOOLEAN, FILTER_NULL_ON_FAILURE) ?? false;
+        return CLI::getOption($name) !== null;
     }
 }
